@@ -190,7 +190,9 @@ pulseeffects
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit pull requests or open issues for bugs, features, or documentation improvements.
+Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on how to contribute to this project.
+
+For the project roadmap and planned features, see [ROADMAP.md](ROADMAP.md).
 
 ## License
 
@@ -203,6 +205,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [JACK Audio Connection Kit](https://jackaudio.org/)
 - [PipeWire](https://pipewire.org/)
 - [LADSPA Plugins](https://www.ladspa.org/)
+
+## Project Status
+
+![CI](https://github.com/LuminLynx/Sound-Equalizer/workflows/CI/badge.svg)
+
+This project is actively maintained. See [ROADMAP.md](ROADMAP.md) for planned features and improvements.
 
 ## Acknowledgments
 
