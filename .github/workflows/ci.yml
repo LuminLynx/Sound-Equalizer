@@ -1,0 +1,133 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test Python ${{ matrix.python-version }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    
+    permissions:
+      contents: read
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y portaudio19-dev
+    
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install numpy scipy pytest pytest-cov
+    
+    - name: Run tests
+      run: |
+        python -m pytest tests/ -v --cov=python-equalizer --cov-report=xml --cov-report=term
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
+
+  lint:
+    name: Code Quality Checks
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install black flake8 pylint mypy isort
+        pip install numpy scipy
+    
+    - name: Check code formatting with Black
+      run: |
+        black --check python-equalizer/ tests/
+      continue-on-error: true
+    
+    - name: Lint with flake8
+      run: |
+        # Stop the build if there are Python syntax errors or undefined names
+        flake8 python-equalizer/ --count --select=E9,F63,F7,F82 --show-source --statistics
+        # Exit-zero treats all errors as warnings
+        flake8 python-equalizer/ --count --exit-zero --max-complexity=10 --max-line-length=100 --statistics
+      continue-on-error: true
+    
+    - name: Lint with pylint
+      run: |
+        pylint python-equalizer/ --exit-zero
+      continue-on-error: true
+    
+    - name: Check import sorting with isort
+      run: |
+        isort --check-only python-equalizer/ tests/
+      continue-on-error: true
+
+  examples:
+    name: Run Examples
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install numpy scipy
+    
+    - name: Run examples
+      run: |
+        cd python-equalizer
+        python examples.py
+    
+    - name: Test equalizer in test mode
+      run: |
+        cd python-equalizer
+        python equalizer.py --test
+    
+    - name: List presets
+      run: |
+        cd python-equalizer
+        python equalizer.py --list-presets
