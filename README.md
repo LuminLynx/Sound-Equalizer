@@ -1,6 +1,12 @@
 # Sound Equalizer for Linux (Debian)
 
+![CI](https://github.com/LuminLynx/Sound-Equalizer/workflows/CI/badge.svg)
+![Python](https://img.shields.io/badge/python-3.8%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 A comprehensive guide and implementation for creating sound equalizers on Linux systems, specifically targeting Debian-based distributions.
+
+**Quick Links:** [Getting Started](GETTING_STARTED.md) | [Contributing](CONTRIBUTING.md) | [Roadmap](ROADMAP.md)
 
 ## Overview
 
