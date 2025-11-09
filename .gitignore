@@ -59,3 +59,7 @@ Thumbs.db
 coverage.xml
 htmlcov/
 .pytest_cache/
+
+# PyInstaller
+build/
+dist/
