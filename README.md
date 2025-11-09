@@ -6,7 +6,7 @@
 
 A comprehensive guide and implementation for creating sound equalizers on Linux systems, specifically targeting Debian-based distributions.
 
-**Quick Links:** [Getting Started](GETTING_STARTED.md) | [Contributing](CONTRIBUTING.md) | [Roadmap](ROADMAP.md)
+**Quick Links:** [Getting Started](GETTING_STARTED.md) | [Next Steps](NEXT_STEPS.md) | [Contributing](CONTRIBUTING.md) | [Roadmap](ROADMAP.md)
 
 ## Overview
 
@@ -197,6 +197,8 @@ pulseeffects
 ## Contributing
 
 Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on how to contribute to this project.
+
+**Want to help but not sure where to start?** Check out [NEXT_STEPS.md](NEXT_STEPS.md) for a quick reference guide on what to work on next.
 
 For the project roadmap and planned features, see [ROADMAP.md](ROADMAP.md).
 
