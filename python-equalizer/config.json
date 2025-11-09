@@ -39,13 +39,25 @@
       "description": "Presence"
     },
     {
-      "frequency": 6000,
+      "frequency": 3000,
+      "gain_db": 0.0,
+      "q_factor": 1.0,
+      "description": "Presence"
+    },
+    {
+      "frequency": 4000,
+      "gain_db": 0.0,
+      "q_factor": 1.0,
+      "description": "High midrange"
+    },
+    {
+      "frequency": 8000,
       "gain_db": 0.0,
       "q_factor": 1.0,
       "description": "Brilliance"
     },
     {
-      "frequency": 12000,
+      "frequency": 16000,
       "gain_db": 0.0,
       "q_factor": 1.0,
       "description": "Air"
@@ -54,35 +66,35 @@
   "presets": {
     "flat": {
       "description": "Flat response (no equalization)",
-      "gains": [0, 0, 0, 0, 0, 0, 0, 0]
+      "gains": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     "bass_boost": {
       "description": "Enhanced bass response",
-      "gains": [6, 4, 2, 0, 0, 0, 0, 0]
+      "gains": [6, 4, 2, 0, 0, 0, 0, 0, 0, 0]
     },
     "treble_boost": {
       "description": "Enhanced treble response",
-      "gains": [0, 0, 0, 0, 0, 3, 4, 5]
+      "gains": [0, 0, 0, 0, 0, 0, 3, 4, 5, 6]
     },
     "vocal": {
       "description": "Optimized for vocals",
-      "gains": [-2, -1, 0, 3, 4, 2, 0, -1]
+      "gains": [-2, -1, 0, 3, 4, 2, 0, 0, -1, -1]
     },
     "classical": {
       "description": "Classical music",
-      "gains": [0, 0, 0, 0, -2, -2, 0, 2]
+      "gains": [0, 0, 0, 0, -2, -2, 0, 0, 2, 2]
     },
     "rock": {
       "description": "Rock music",
-      "gains": [4, 2, -1, -2, 0, 2, 3, 3]
+      "gains": [4, 2, -1, -2, 0, 2, 3, 3, 3, 2]
     },
     "jazz": {
       "description": "Jazz music",
-      "gains": [2, 1, 0, 2, -2, -2, 0, 2]
+      "gains": [2, 1, 0, 2, -2, -2, 0, 0, 2, 2]
     },
     "electronic": {
       "description": "Electronic music",
-      "gains": [5, 3, 0, -2, 0, 2, 3, 4]
+      "gains": [5, 3, 0, -2, 0, 2, 3, 3, 4, 4]
     }
   }
 }
