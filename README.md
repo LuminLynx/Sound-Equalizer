@@ -142,7 +142,31 @@ sudo apt-get install easyeffects
 
 ## Quick Start
 
-### Using the Python Implementation
+### Using the GUI (Recommended)
+
+**NEW!** A graphical user interface is now available for easy equalizer control.
+
+1. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+2. Launch the GUI:
+```bash
+cd python-equalizer
+python3 equalizer_gui.py
+```
+
+Features:
+- 10-band equalizer with sliders
+- Real-time frequency response visualization
+- 8 built-in presets (Bass Boost, Treble Boost, Vocal, Rock, Jazz, etc.)
+- Save and load custom presets
+- Enable/disable toggle
+
+See [python-equalizer/README_GUI.md](python-equalizer/README_GUI.md) for detailed GUI documentation.
+
+### Using the Python Implementation (Command Line)
 
 1. Install dependencies:
 ```bash
@@ -173,14 +197,22 @@ pulseeffects
 ├── README.md                 # This file
 ├── LICENSE                   # MIT License
 ├── requirements.txt          # Python dependencies
+├── equalizer_gui.spec        # PyInstaller spec for GUI executable
 ├── python-equalizer/         # Python implementation
 │   ├── equalizer.py         # Main equalizer implementation
+│   ├── equalizer_gui.py     # GUI application (NEW!)
 │   ├── audio_processor.py   # Audio processing functions
-│   └── config.json          # Default configuration
-└── docs/                     # Additional documentation
-    ├── pulseaudio-setup.md  # PulseAudio configuration guide
-    ├── alsa-setup.md        # ALSA configuration guide
-    └── jack-setup.md        # JACK configuration guide
+│   ├── config.json          # Default configuration (10 bands)
+│   └── README_GUI.md        # GUI documentation
+├── docs/                     # Additional documentation
+│   ├── pulseaudio-setup.md  # PulseAudio configuration guide
+│   ├── alsa-setup.md        # ALSA configuration guide
+│   ├── jack-setup.md        # JACK configuration guide
+│   └── equalizer_gui_screenshot.png  # GUI screenshot
+└── tests/                    # Test suite
+    ├── test_equalizer.py    # Equalizer tests
+    ├── test_audio_processor.py  # Audio processor tests
+    └── test_gui.py          # GUI tests
 ```
 
 ## Comparison of Approaches
